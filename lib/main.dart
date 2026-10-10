@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_store/shop/product/domain/entities/product.dart';
 
 void main() {
   runApp(const MyApp());

@@ -3,13 +3,13 @@ import 'package:my_store/shop/product/domain/entities/product.dart';
 class ProductModel extends Product {
   ProductModel({
     required super.id,
-    required super.title,
-    required super.price,
+    required super.title, // all pages use this one
+    required super.price, // all pages use this one
     required super.description,
-    required super.category,
-    required super.stock,
+    required super.category, // all pages use this one
+    required super.stock, // all pages use this one
     required super.size,
-    required super.image,
+    required super.image, // all pages use this one
     required super.rating,
   });
 

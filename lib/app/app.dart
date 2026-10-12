@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_store/core/resourses/strings_manager.dart';
-import 'package:my_store/core/resourses/values_manager.dart';
+import 'package:my_store/shop/product/presentation/screens/products_screen.dart';
 
 class MyApp extends StatefulWidget {
   // MyApp({super.key});  // defult constructor
@@ -26,11 +26,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: AppStrings.appTitle,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: Padding(
-        padding: const EdgeInsets.all(AppPadding.init),
-        child: const Placeholder(),
-      ),
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.green)),
+      home: ProductsScreen(),
     );
   }
 }

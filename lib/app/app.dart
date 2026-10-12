@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_store/core/resourses/strings_manager.dart';
+import 'package:my_store/core/resourses/values_manager.dart';
 
 class MyApp extends StatefulWidget {
   // MyApp({super.key});  // defult constructor
@@ -22,10 +24,13 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: AppStrings.appTitle,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const Placeholder(),
+      home: Padding(
+        padding: const EdgeInsets.all(AppPadding.init),
+        child: const Placeholder(),
+      ),
     );
   }
 }

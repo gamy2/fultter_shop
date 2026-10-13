@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_store/shop/product/domain/entities/product.dart';
 
-class ProductsScreen extends StatefulWidget {
+class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key});
-
-  @override
-  State<ProductsScreen> createState() => _ProductsScreenState();
-}
-
-class _ProductsScreenState extends State<ProductsScreen> {
-  List<Product> products = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold();
   }
 }
-
 
 // appBar: AppBar(
 //         title: const Text('Products'),

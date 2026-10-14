@@ -4,15 +4,19 @@ import 'package:my_store/core/service/services_locator.dart';
 import 'package:my_store/shop/product/presentation/controller/products_bloc.dart';
 import 'package:my_store/shop/product/presentation/controller/products_events.dart';
 import 'package:my_store/shop/product/presentation/controller/products_states.dart';
+import 'package:my_store/shop/product/presentation/widgets/products_widget.dart';
 
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // print(sl<ProductsBloc>().hashCode);
     return BlocProvider(
       create: (BuildContext context) {
-        return ProductsBloc(sl())..add(GetAllProductsEvent());
+        return sl<ProductsBloc>()
+          ..add(GetAllProductsEvent())
+          ..add(GetAllCategoriesEvent());
       },
       child: BlocBuilder<ProductsBloc, ProductsState>(
         builder: (context, state) {
@@ -24,16 +28,19 @@ class ProductsScreen extends StatelessWidget {
             body: SingleChildScrollView(
               child: Column(
                 children: [
-                  for (var product in state.products)
-                    Column(
-                      children: [
-                        Text(product.title),
-                        Text(product.description),
-                        Image.network(product.image, width: 180),
-                        Text('\$${product.price}'),
-                        const SizedBox(height: 16),
-                      ],
+                  Container(
+                    height: 80,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+
+                      child: Row(
+                        children: [
+                          for (var cat in state.categories) Text(cat.name),
+                        ],
+                      ),
                     ),
+                  ),
+                  ProductsComponent(),
                 ],
               ),
             ),
@@ -43,24 +50,3 @@ class ProductsScreen extends StatelessWidget {
     );
   }
 }
-
-// appBar: AppBar(
-//         title: const Text('Products'),
-//         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-//       ),
-//       body: SingleChildScrollView(
-//         child: Column(
-//           children: [
-//             for (var product in products)
-//               Column(
-//                 children: [
-//                   Text(product.title),
-//                   Text(product.description),
-//                   Image.network(product.image, width: 180),
-//                   Text('\$${product.price}'),
-//                   const SizedBox(height: 16),
-//                 ],
-//               ),
-//           ],
-//         ),
-//       ),
